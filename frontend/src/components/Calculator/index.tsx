@@ -13,6 +13,7 @@ import ResultsSection from "./ResultsSection";
 import RiskMetricsSection from "./RiskMetricsSection";
 import AiHighlight from "../AiHighlight";
 import { fetchPortfolioPreset } from "../../services/presetService";
+import { apiUrl } from "../../lib/api";
 
 const SECTION_BGS = ["#ffffff", "#ffffff", "#0f172a", "#f8fafc"];
 const SECTION_NAMES = ["hero", "form", "results", "riskMetrics"];
@@ -168,7 +169,7 @@ export default function Calculator({
     };
 
     try {
-      const res = await fetch("/api/portfolio/recommend", {
+      const res = await fetch(apiUrl("/api/portfolio/recommend"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

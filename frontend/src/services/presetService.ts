@@ -1,10 +1,11 @@
 import type { PortfolioPreset } from "../types";
 import type { UserProfile } from "../types/profile";
+import { apiUrl } from "../lib/api";
 
 export async function fetchPortfolioPreset(
   profile: UserProfile
 ): Promise<PortfolioPreset> {
-  const res = await fetch("/api/presets/recommend", {
+  const res = await fetch(apiUrl("/api/presets/recommend"), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

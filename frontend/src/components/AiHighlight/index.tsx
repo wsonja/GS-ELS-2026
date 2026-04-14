@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import type { UserProfile } from "../../types/profile";
 import type { PortfolioRecommendation, MonteCarloPoint, ScenarioResult, StressEventResult } from "../../types";
+import { apiUrl } from "../../lib/api";
 
 export type AiHighlightContext = {
   profile?: UserProfile | null;
@@ -188,7 +189,7 @@ export default function AiHighlight({ context }: Props) {
     };
 
     try {
-      const res = await fetch("/api/ai/explain-selection", {
+      const res = await fetch(apiUrl("/api/ai/explain-selection"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

@@ -20,6 +20,7 @@ import type {
 import type { UserProfile } from "../../types/profile";
 import StressExplanationModal from "./StressExplanationModal";
 import AiHighlight from "../AiHighlight";
+import { apiUrl } from "../../lib/api";
 
 type Props = {
   onTabChange: (t: string) => void;
@@ -98,9 +99,9 @@ export default function Analytics({ onTabChange, analyticsParams, profile, portf
     const headers = { "Content-Type": "application/json" };
 
     Promise.all([
-      fetch("/api/analytics/montecarlo", { method: "POST", headers, body }).then((r) => r.json()),
-      fetch("/api/analytics/scenarios", { method: "POST", headers, body }).then((r) => r.json()),
-      fetch("/api/analytics/stress", { method: "POST", headers, body }).then((r) => r.json()),
+      fetch(apiUrl("/api/analytics/montecarlo"), { method: "POST", headers, body }).then((r) => r.json()),
+      fetch(apiUrl("/api/analytics/scenarios"), { method: "POST", headers, body }).then((r) => r.json()),
+      fetch(apiUrl("/api/analytics/stress"), { method: "POST", headers, body }).then((r) => r.json()),
     ])
       .then(([mc, sc, stress]) => {
         setMcData(mc.data ?? []);
