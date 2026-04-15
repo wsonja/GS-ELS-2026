@@ -1,5 +1,5 @@
 # GS-ELS-2026
-Our project for Goldman Sachs ELS program
+Our project for Goldman Sachs ELS program: [https://mutual-fund-calc.vercel.app/](https://mutual-fund-calc.vercel.app/)
 
 This repo is a with:
 - **backend/**: Spring Boot REST API (Java)
